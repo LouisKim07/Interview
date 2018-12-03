@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <section class="sec">
+        <style>
+            .sec{
+                background:red;
+            }
+            .sec .child{
+                height:100px;
+                margin-top:10px;
+                background:yellowgreen;
+            }
+        </style>
+        <article class="child">
+
+        </article>
+    </section>
+    <!-- BFC垂直方向边距重叠 -->
+     
+    <section id="margin">
+        <style>
+            #margin{
+                background:pink;
+                overflow:hidden;
+            }
+            #margin p{
+                margin:5px auto 25px;
+                background:red;
+            }
+            /*如何解决上线边距重叠的问题呢?  */
+            /* 在子元素添加一个 父元素,这个父元素创建一个BFC */
+        </style>
+        <p>1</p>
+        <div style="overflow:hidden">
+            <p>2</p>
+        </div>
+        <p>3</p>
+    </section>
+    <!-- BFC不予flot 重叠 -->
+    <section id='layout'>
+        <style>
+            #layout{
+                background:blue;
+            }
+            #layout .left{
+                float:left;
+                width:100px;
+                height:100px;
+                background:yellow;
+            }
+            #layout .right{
+                background:green;
+                height:110px;
+                overflow:auto;
+            }
+        </style>
+        <div class="left"></div>
+        <div class="right"></div>
+    </section>
+    <!-- BFC 子元素即时是float 也会参与高度计算 -->
+    <section id="float">
+        <style>
+            #float{
+            background:orange;
+            /* 设置BFC */
+            /* overflow:不为visible 即创建BFC*/
+            overflow:auto;
+            }
+            #float .float{
+                background:red;
+                float:left;
+                font-size:30px;
+            }
+        </style>
+        <div class="float">我是浮动元素</div>
+    </section>
+</body>
+</html>
