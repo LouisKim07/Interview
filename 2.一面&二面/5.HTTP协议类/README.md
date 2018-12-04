@@ -21,3 +21,24 @@
 *           PUT: 更新资源
 *           DELETE: 删除资源
 *           HEAD: 获取报文首部
+
+###     GET 和 POST 的区别
+
+*           GET 在浏览器回退是是无害的,而POST会再次请求
+
+            GET 产生的URL地址可以被收藏,而POST不可以
+            
+            GET 请求会被浏览器主动缓存,而POST不会
+            
+            GET 请求只能进行URL编码,,而POST支持多种编码方式
+            
+            GET 请求参数会被完整保留再浏览器历史记录,而POST中的参数不会被保留
+            
+            GET 请求子URL中传送的参数是有长度限制的,而POST没有限制
+            
+            对参数的数据类型,GET只接受ASCII字符,而POST没有限制
+                        
+            GET 比POST更不俺去,因为参数直接暴露在URL上,所以不能用来传递敏感信息
+                        
+            GET 参数通过URL传递,而POST放在Request body 中
+            
