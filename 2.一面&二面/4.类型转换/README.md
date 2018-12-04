@@ -28,7 +28,11 @@
 ####       2>显示类型转化->  String 函数
 *           原始类型转换:
 *               数值:转为相应的字符串
+
                 字符串:转换后还是原来的值
+
                 布尔值:true 转为 "true", false转为"false"
+
                 undefined:转为 "undefined"
+                
                 null: 转为 "null"
