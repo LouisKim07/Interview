@@ -42,3 +42,13 @@
                  如果toString方法返回的是复合类型的值，再调用valueOf方法，如果valueOf方法返回的是原始类型的值，则对该值使用String方法
 
                  如果 toString 方法返回的是还是复合类型的值.则报错.
+
+
+####    3>显示类型转化->  Boolean 函数
+*           以下六个值的转化结果为false，其他的值全部为true
+                undefined        =>  false
+                null             =>  false
+                -0               =>  false
+                +0               =>  false
+                NaN              =>  false
+                ''（空字符串）   =>  false

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>类型转换</title>
+    <title>显示类型转换</title>
 </head>
 <body>
     <!-- http://2ality.com/2012/01/object-plus-object.html -->
@@ -57,5 +57,38 @@
         };
         console.log('b', String(b));
       </script>
+      <!-- Boolean -->
+      <script type="text/javascript">
+        // 以下六个值的转化结果为false，其他的值全部为true
+        // undefined
+        // null
+        // -0
+        // +0
+        // NaN
+        // ''（空字符串）
+        console.log('undefined', Boolean(undefined)); // false
+    
+        console.log('null', Boolean(null)); // false
+    
+        console.log('0', Boolean(0)); // false
+    
+        console.log('NaN', Boolean(NaN)); // false
+    
+        console.log('', Boolean('')); // false
+        </script>
+      
+        <script type="text/javascript">
+          // 运算子之中存在对象（或者准确地说，存在非原始类型的值），
+          // 则先调用该对象的valueOf方法。如果返回结果为原始类型的值，
+          // 则运用上面两条规则；否则继续调用该对象的toString方法，
+          // 对其返回值运用上面两条规则
+          1 + [1, 2];
+        </script>
+
+
+
+        <!-- 隐式类型转换 -> type-enum.html  -->
+
+
 </body>
 </html>

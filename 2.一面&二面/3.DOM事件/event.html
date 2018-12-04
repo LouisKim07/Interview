@@ -45,20 +45,20 @@
         },true);
         // 冒泡阶段
         ev.addEventListener('click',function(){
-            console.log('ev标签 捕获阶段');
+            console.log('ev标签 冒泡阶段');
         },false); 
 
         window.addEventListener('click',function(){
-            console.log('window 捕获阶段');
+            console.log('window 冒泡阶段');
         },false);
         document.addEventListener('click',function(){
-            console.log('document 捕获阶段');
+            console.log('document 冒泡阶段');
         },false);
         document.documentElement.addEventListener('click',function(){
-            console.log('Html标签 捕获阶段');
+            console.log('Html标签 冒泡阶段');
         },false);
         document.body.addEventListener('click',function(){
-            console.log('body标签 捕获阶段');
+            console.log('body标签 冒泡阶段');
         },false);
         
 
