@@ -31,3 +31,15 @@
 *    event.stopImmediatePropagation() --优先级事件(例如,一个元素绑定两个事件,使用即 有限执行并阻止另个事件执行)
 *    event.currentTarget() -- 指向 [当前绑定]的事件对象(父级元素绑定的click(指定的就是父级元素))
 *    event.target() -- 指向[当前触发]事件监听的对象
+
+## DOM 事件类: 自定义事件
+
+*   var eve = new Event('custome') //只能指定事件名
+*   ev.addEventListener('custome',function(){
+    console.log('custome');
+});
+    ev.dispatchEvent(eve); //触发事件
+
+*   CustomEvent //除了可以指定事件名,也可以添加自定义属性
+*   var eve = new Event('custome',{'dispatch':{'api':true}})
+*   
