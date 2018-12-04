@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类型转换</title>
+</head>
+<body>
+    <!-- http://2ality.com/2012/01/object-plus-object.html -->
+    <script type="text/javascript">
+        // Number函数：转换成数值
+        // 转换后还是原来的值
+        console.log(Number(324)); // 324
+        // 如果可以被解析为数值，则转换为相应的数值，否则得到NaN。空字符串转为0
+        console.log(Number('324'));// 324
+        console.log(Number('324abc')); // NaN
+
+        console.log(Number('')); // 0
+        // true转成1，false转成0
+        console.log(Number(false)); // 0
+        console.log(Number(true));// 1
+        // 转成NaN
+        console.log(Number(undefined)); // NaN
+        // 转成0
+        console.log(Number(null)); // 0
+        var a = {a: 1};
+        console.log('a', Number({a: 1}));
+    </script>
+    
+</body>
+</html>
