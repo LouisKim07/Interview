@@ -28,6 +28,6 @@
 
 *    event.preventdefault(); -- 阻止默认事件(例如,a标签,可以阻止默认跳转行为)
 *    event.stopPropagation() -- 阻止冒泡
-*    event.stopImmediatePropagation() --
-*    event.currentTarget() --
-*    event.target() --
+*    event.stopImmediatePropagation() --优先级事件(例如,一个元素绑定两个事件,使用即 有限执行并阻止另个事件执行)
+*    event.currentTarget() -- 指向 [当前绑定]的事件对象(父级元素绑定的click(指定的就是父级元素))
+*    event.target() -- 指向[当前触发]事件监听的对象
