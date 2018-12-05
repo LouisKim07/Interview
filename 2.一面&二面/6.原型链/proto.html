@@ -20,7 +20,7 @@
         //Object.create
         var p = {name:'World'};
         var o4 = Object.create(p);
-
+        console.log(o4.__proto__ === p) ; //true
 
 
         //使用 原型
@@ -29,12 +29,16 @@
         }
         var o5 = new M('o5');
 
+            
+
         //原型链:就是这样
+        
         console.log(o5.__proto__ === M.prototype)  
         console.log(M.prototype.__proto__ === Object.prototype)
         console.log(Object.prototype.__proto__ === null );
-
+        console.log("-------")
         console.log( o5 instanceof Object)
+        console.log(o5.__proto__.constructor===M)
         console.log( )
 
         //Function
@@ -43,7 +47,22 @@
         console.log(M.constructor === Function);
          
         console.log(M.__proto__ ===Function.prototype);
-       
+        
+
+        //new 运算符工原理
+        var new1 = function(func){
+            //创建一个空对象并关联构造函数的原型对象
+            var kong = Object.create(func.prototype);
+            //2.执行构造函数
+            var linshi = func.call(kong);
+            
+            //3.判断构造函数运行结构是不是  对象 类型
+            if(typeof linshi=== 'object'){
+                return linshi
+            }else{
+                return kong
+            }
+        }
     </script>
 </body>
 </html>
