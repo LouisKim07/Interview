@@ -42,3 +42,15 @@
         事件的触发条件
 
         事件的触发顺序
+
+##  跨域通信的几种方式?
+
+*   JSONP
+
+    Hash  (hash改变,页面不会更新:::  search?后面改变 页面刷新)
+
+    postMessage
+
+    WebSocket
+
+    CORS
