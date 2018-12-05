@@ -20,6 +20,30 @@
         //Object.create
         var p = {name:'World'};
         var o4 = Object.create(p);
+
+
+
+        //使用 原型
+        M.prototype.say=function(){
+            console.log("我会讲话")
+        }
+        var o5 = new M('o5');
+
+        //原型链:就是这样
+        console.log(o5.__proto__ === M.prototype)  
+        console.log(M.prototype.__proto__ === Object.prototype)
+        console.log(Object.prototype.__proto__ === null );
+
+        console.log( o5 instanceof Object)
+        console.log( )
+
+        //Function
+        console.log("constructor:----")
+        console.log(o5.constructor === M)
+        console.log(M.constructor === Function);
+         
+        console.log(M.__proto__ ===Function.prototype );
+       
     </script>
 </body>
 </html>
