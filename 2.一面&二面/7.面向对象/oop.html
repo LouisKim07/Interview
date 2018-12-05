@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //类的生命,1.传统构造函数, 2.es6的写法
+        function Animal(){
+            this.name = 'name';
+        }    
+        /*
+        * es6 中的class的声明
+        */ 
+       class Animal2{
+           constructor (){
+               this.name ="nmae"
+           }
+       }
+
+       //实例化 第一种方式,,如果构造函数没有参数 new Animal后的括号可以不用
+       console.log(new Animal,new Animal2)
+
+
+
+       /*********
+        * ##  js的继承
+        * ***********/
+
+       //第一种继承: 借助构造函数
+       
+       function Parent1() {
+           this.name ='parent1'
+       }
+       Parent1.prototype.say=function(){}; //未被child1 继承过去
+       function child1(){
+           Parent1.call(this); //&    apply 
+           this.type = 'child1'
+       }
+
+        console.log(new child1)
+        //console.log(new child1().say());//由于未继承parent1的Prototype所以被报错
+       
+        //原理:改变Parent1的 this 指向, 在这里都指向 child1,
+        //(call)缺点: Parent1 原型链上的东西,并没有被child1继承;只能继承构造函数中的信息
+
+
+       //第二种:借助原型链
+       function Parent2() {
+           this.name ='parent2';
+           this.syaHi = function(){};
+           this.play = [1,2,3];
+       }
+       function child2(){
+           this.type = 'child2'
+       }
+       child2.prototype = new Parent2();
+
+       console.log(new child2())
+       
+       Parent2.prototype.sayYeah=function(){}
+       console.log(new child2().__proto__)
+       
+       var s1 = new child2();
+       var s2 = new child2();
+       console.log(s1.play , s2.play)
+       
+       s1.play.push(4); 
+       console.log(s1.play); //[1,2,3,4],  改变了s1中的内容,s2也跟着改变
+       console.log(s2.play); //[1,2,3,4]
+       
+       //缺点:原型链中的原型对象,,改变了s1中的内容,s2也跟着改变
+
+       //第三种方式: 组合方式继承: 结合前两种有点
+        function Parent3(){
+           this.name = "Parent3";
+           this.play = [1,2,3]
+        }
+        function Child3(){
+           Parent3.call(this);
+           this.type = "child3";
+        }
+        Child3.prototype = new Parent3();
+       
+        var s3 = new Child3();
+        var s4 = new Child3();
+        s3.play.push(4);
+        console.log(s3.play,s4.play);
+
+        //缺点:父级构造函数 执行了两次, ----没必要
+
+
+        //第 4 种方式: 组合方式继承优化1 ______------------
+        function Parent4(){
+           this.name = "Parent4";
+           this.play = [1,2,3]
+        }
+        function Child4(){
+            Parent4.call(this);
+           this.type = "child4";
+        }
+        Child4.prototype = Parent4.prototype;
+       
+        var s5 = new Child4();
+        var s6 = new Child4();
+        console.log(s5,s6);
+
+        console.log(s5 instanceof Child4,s5 instanceof Parent4); //true,true
+
+        //怎么区分一个对象 是 子类实例化还是 父类实例化的呢?
+        console.log("s5.constructor:::")
+        console.log(s5.constructor)
+
+
+        //第 4 种方式: 组合方式继承优化2_______________完美________
+        function Parent5(){
+           this.name = "Parent5";
+           this.play = [1,2,3]
+        }
+        function Child5(){
+            Parent4.call(this);
+           this.type = "child5";
+        }
+        Child5.prototype = Object.create(Parent5.prototype); //达到了父类和子类的隔离,但还是能 找到父类的Prototype
+        Child5.prototype.constructor = Child5;  //加上这句     完美
+        var s7 = new Child5();
+
+        console.log(s7 instanceof Child5, s7 instanceof Parent5);
+        console.log("s7.constructor:::")
+        console.log(s7.constructor)
+
+    </script>
+</body>
+</html>
