@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>错误控制</title>
+    <script>
+        // window.addEventListener('error',function(e){
+        //      console.log('捕获',e)
+        // },true)
+        //true 为捕获
+        //false //为冒泡
+    </script>
+</head>
+<body>
+    <!-- <script src="//baidu.com/test.js" charset="utf-8"></script> -->
+
+    <!--  2)利用Image对象上报:如error.html -->
+    <script>
+            (new Image()).src='//baidu.com/test.js'
+    </script>
+    
+</body>
+</html>
