@@ -8,4 +8,12 @@
 
 ##  1.了解MVVM框架吗?
 
-        vue,react,anguler
+        vue.js,react.js,anguler.js
+
+*       注意事项:
+
+            1.一定要想好说 哪个
+
+            2.收住有点,攒着下面说,开启引导模式
+
+            3.话别说的太满,低调谨慎
