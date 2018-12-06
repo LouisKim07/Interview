@@ -39,8 +39,21 @@
                 ◀正向
 
 
+
+
+            input 事件
+            ------→
                 反向▶
         View  ------- Data
                 ◀正向
-
+            ←-----
             ES6中的API:Object.defineProperty
+
+
+        1.object.defineProperty 的用法要熟记于心
+
+        2.object.defineProperty 与 reflect.defineProperty的区别
+        reflect.defineProperty:es6中的语法,返回一个 布尔值
+        object.defineProperty:es5 返回一个 新的对象
+
+        3.object.defineProperty 要会手写
