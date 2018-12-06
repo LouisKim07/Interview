@@ -31,3 +31,16 @@
         2.把MVVM的定义说清楚,表达概念理解到位
 
         4.对比MVVM和MVC
+
+##  2.双向绑定是什么原理
+
+                反向▶
+*       View  ------- Data
+                ◀正向
+
+
+                反向▶
+        View  ------- Data
+                ◀正向
+
+            ES6中的API:Object.defineProperty
