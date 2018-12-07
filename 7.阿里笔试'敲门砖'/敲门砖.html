@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .list {width:300px;margin-top:100px;margin-left: 100px; }
+        .list li{
+            margin-bottom: 10px;
+            border:2px solid green;
+        }
+        .list li .sel{padding-left:270px;color:red;cursor: pointer;}
+    </style>
 </head>
 <body>
-    
+    <ul class="list">
+        <li><span class="del">x</span></li>
+        <li><span class="del">x</span></li>
+        <li><span class="del">x</span></li>
+        <li><span class="del">x</span></li>
+        <li><span class="del">x</span></li>
+        <li><span class="del">x</span></li>
+        <li><span class="del">x</span></li>
+    </ul>
+    <script>
+        function List(sel){
+            //Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例
+            this.Doms = Array.from(document.querySelectorAll(sel))
+            var sel = this
+            this.Doms.forEach(function(item) {
+                item.addEventListener('click',function(e){
+                     if(e.target.className.indexOf('del')>-1){
+                         console.log(sel.Doms)
+                     }
+                })
+            });
+        }
+
+        new List(".list")
+    </script>
 </body>
 </html>
